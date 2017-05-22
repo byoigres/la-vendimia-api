@@ -1,0 +1,29 @@
+{
+  "name": "la-vendimia-api",
+  "version": "0.1.0",
+  "description": "Sistema La Vendimia API",
+  "main": "./src/index.js",
+  "repository": "git@github.com:byoigres/la-vendimia-api.git",
+  "author": "Sergio Flores <byoigres@gmail.comm>",
+  "license": "MIT",
+  "scripts" : {
+    "start": "node ./src/index.js",
+    "nodemon": "nodemon --inspect ./src/index.js",
+    "lint": "eslint ./src"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-hapi": "^10.0.0",
+    "eslint-plugin-async-await": "^0.0.0",
+    "eslint-plugin-hapi": "^4.0.0",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "confidence": "^3.0.2",
+    "glue": "^4.1.0",
+    "good": "^7.2.0",
+    "good-console": "^6.4.0",
+    "mongodb-uri": "^0.9.7",
+    "mongoose": "^4.10.1"
+  }
+}

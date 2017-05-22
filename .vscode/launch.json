@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible Node.js debug attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Docker Linux",
+            "type": "node",
+            "request": "attach",
+            "protocol": "inspector",
+            "address": "localhost",
+            "port": 5551,
+            "restart": true,
+            "sourceMaps": false,
+            "remoteRoot": "/opt/www/hellocuent-api",
+            "localRoot": "${workspaceRoot}"
+        },
+        {
+            "name": "Docker Windows",
+            "type": "node",
+            "request": "attach",
+            "protocol": "inspector",
+            "address": "192.168.99.100",
+            "port": 5551,
+            "restart": true,
+            "sourceMaps": false,
+            "remoteRoot": "/opt/www/hellocuent-api",
+            "localRoot": "${workspaceRoot}"
+        }
+    ]
+}

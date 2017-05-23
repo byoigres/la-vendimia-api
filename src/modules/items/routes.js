@@ -12,10 +12,5 @@ module.exports = [
         method: 'GET',
         path: '/api/customer',
         config: Handlers.list
-    },
-    {
-        method: 'GET',
-        path: '/api/customer/hash',
-        config: Handlers.createRandomHash
     }
 ];

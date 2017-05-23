@@ -6,7 +6,6 @@ const Models = require('./models');
 exports.create = {
     validate: {
         payload: {
-            clave: Joi.string().max(6).required().label('clave'),
             nombre: Joi.string().max(80).required().label('nombre'),
             apellidoPaterno: Joi.string().max(80).required().label('apellido-paterno'),
             apellidoMaterno: Joi.string().max(80).required().label('apellido-materno'),
@@ -17,28 +16,19 @@ exports.create = {
 
         try {
             const {
-                clave,
                 nombre,
                 apellidoPaterno,
                 apellidoMaterno,
                 rfc
             } = request.payload;
 
-            const customerData = await Models.create(clave, nombre, apellidoPaterno, apellidoMaterno, rfc);
+            const customerData = await Models.create(nombre, apellidoPaterno, apellidoMaterno, rfc);
 
             reply(customerData);
         }
         catch (err) {
             reply(err);
         }
-    }
-};
-exports.createRandomHash = {
-    handler(request, reply) {
-        return reply({
-            type: 'customer',
-            hash: require('crypto').randomBytes(3).toString('hex')
-        });
     }
 };
 

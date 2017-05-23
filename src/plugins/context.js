@@ -21,10 +21,18 @@ exports.register = (server, options, next) => {
             else {
                 const messages = {};
 
-                Object.keys(response.data).map((item) => {
+                if (response.data.isJoi) {
+                    Object.keys(response.data.details).map((item) => {
 
-                    messages[item] = response.data[item];
-                });
+                        messages[response.data.details[item].context.key] =
+                            response.data.details[item].message;
+                    });
+                } else {
+                    Object.keys(response.data).map((item) => {
+
+                        messages[item] = response.data[item];
+                    });
+                }
 
                 response.output.payload = {
                     error: {

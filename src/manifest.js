@@ -21,7 +21,7 @@ const manifest = {
         routes: {
             validate: {
                 options: {
-                    abortEarly: false
+                    abortEarly: true
                 },
                 failAction: function (request, reply, source, error) {
 
@@ -41,8 +41,8 @@ const manifest = {
                 }
             },
             cors: {
-              origin: ['*'],
-              additionalHeaders: ['cache-control', 'x-requested-with']
+                origin: ['*'],
+                additionalHeaders: ['cache-control', 'x-requested-with']
             }
         }
     }],
@@ -61,6 +61,15 @@ const manifest = {
         },
         {
             plugin: './plugins/context'
+        },
+        {
+            plugin: {
+                register: 'hapi-i18n',
+                options: {
+                    locales: ['es', 'en'],
+                    directory: `${__dirname}/resources/locales`
+                }
+            }
         },
         {
             plugin: {

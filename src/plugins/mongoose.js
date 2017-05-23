@@ -16,6 +16,7 @@ exports.register = (plugin, options, next) => {
     // Models
 
     schemas.customer = new Schema({
+        clave: String,
         nombre: String,
         apellidoPaterno: String,
         apellidoMaterno: String,
@@ -29,6 +30,12 @@ exports.register = (plugin, options, next) => {
             default: Date.now
         }
     });
+
+    schemas.item = new Schema({
+        descripcion: String,
+        modelo: String,
+        precio: Number
+    })
 
     // Models
     models.Event = mongoose.model('customer', schemas.customer);

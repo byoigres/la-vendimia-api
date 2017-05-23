@@ -6,7 +6,7 @@
   "repository": "git@github.com:byoigres/la-vendimia-api.git",
   "author": "Sergio Flores <byoigres@gmail.comm>",
   "license": "MIT",
-  "scripts" : {
+  "scripts": {
     "start": "node ./src/index.js",
     "nodemon": "nodemon --inspect ./src/index.js",
     "lint": "eslint ./src"
@@ -23,6 +23,7 @@
     "glue": "^4.1.0",
     "good": "^7.2.0",
     "good-console": "^6.4.0",
+    "hapi-i18n": "^1.0.4",
     "mongodb-uri": "^0.9.7",
     "mongoose": "^4.10.1"
   }

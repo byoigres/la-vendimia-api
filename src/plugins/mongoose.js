@@ -35,10 +35,17 @@ exports.register = (plugin, options, next) => {
         descripcion: String,
         modelo: String,
         precio: Number
-    })
+    });
+
+    schemas.configuration = new Schema({
+        financiamiento: Number,
+        enganche: Number,
+        plazo: Number
+    });
 
     // Models
     models.Event = mongoose.model('customer', schemas.customer);
+    models.Configuration = mongoose.model('configuration', schemas.configuration);
 
     // Schema options
     Object.keys(schemas).forEach((key) => {

@@ -7,5 +7,6 @@
 	"apellido-materno.any.empty": "No es posible continuar, debe ingresar `el apellido materno` es obligatorio",
 	"rfc.any.required": "No es posible continuar, debe ingresar `el rfc` es obligatorio",
 	"rfc.any.empty": "No es posible continuar, debe ingresar `el rfc` es obligatorio",
-	"clave.any.required": "No es posible continuar, debe ingresar `la clave` es obligatorio"
+	"clave.any.required": "No es posible continuar, debe ingresar `la clave` es obligatorio",
+	"id.any.required": "id.any.required"
 }

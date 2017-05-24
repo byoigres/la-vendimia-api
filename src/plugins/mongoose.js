@@ -39,6 +39,12 @@ exports.register = (plugin, options, next) => {
         existencia: Number
     });
 
+    schemas.sales = new Schema({
+        folio: String,
+        cliente: String,
+        status: String
+    });
+
     schemas.configuration = new Schema({
         financiamiento: Number,
         enganche: Number,

@@ -89,6 +89,9 @@ const manifest = {
             plugin: './modules/customers'
         },
         {
+            plugin: './modules/items'
+        },
+        {
             plugin: './modules/configuration'
         }
     ]

@@ -7,7 +7,8 @@ exports.create = (
     nombre,
     apellidoPaterno,
     apellidoMaterno,
-    rfc) => {
+    rfc
+) => {
 
     const CustomerModel = Mongoose.model('customer');
     const customer = new CustomerModel();
@@ -28,20 +29,17 @@ exports.update = (
     nombre,
     apellidoPaterno,
     apellidoMaterno,
-    rfc) => {
+    rfc
+) => {
 
     const CustomerModel = Mongoose.model('customer');
-    return CustomerModel.findOneAndUpdate({
-      clave
-    },
-    {
-      nombre,
-      apellidoPaterno,
-      apellidoMaterno,
-      rfc
-    },
-    {
-      upsert:true
+    return CustomerModel.findOneAndUpdate({ clave }, {
+        nombre,
+        apellidoPaterno,
+        apellidoMaterno,
+        rfc
+    }, {
+        upsert: true
     });
 };
 
@@ -65,9 +63,7 @@ exports.get = (clave) => {
     const CustomerModel = Mongoose.model('customer');
 
     return CustomerModel
-        .findOne({
-          clave
-        }, {
+        .findOne({ clave }, {
             _id: false,
             id: false,
             __v: false,

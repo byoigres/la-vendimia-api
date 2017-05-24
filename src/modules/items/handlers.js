@@ -6,25 +6,78 @@ const Models = require('./models');
 exports.create = {
     validate: {
         payload: {
-            nombre: Joi.string().max(80).required().label('nombre'),
-            apellidoPaterno: Joi.string().max(80).required().label('apellido-paterno'),
-            apellidoMaterno: Joi.string().max(80).required().label('apellido-materno'),
-            rfc: Joi.string().max(20).required().label('rfc'),
+            clave: Joi.string().max(6).required().label('clave'),
+            descripcion: Joi.string().max(80).required().label('descripcion'),
+            precio: Joi.number().required().label('precio'),
+            modelo: Joi.string().max(80).label('modelo'),
+            existencia: Joi.number().required().label('existencia'),
         }
     },
     handler: async (request, reply) => {
 
         try {
             const {
-                nombre,
-                apellidoPaterno,
-                apellidoMaterno,
-                rfc
+                clave,
+                descripcion,
+                precio,
+                modelo,
+                existencia
             } = request.payload;
 
-            const customerData = await Models.create(nombre, apellidoPaterno, apellidoMaterno, rfc);
+            const itemData = await Models.create(clave, descripcion, precio, modelo, existencia);
 
-            reply(customerData);
+            reply(itemData);
+        }
+        catch (err) {
+            reply(err);
+        }
+    }
+};
+
+exports.update = {
+    validate: {
+        payload: {
+            clave: Joi.string().max(6).required().label('clave'),
+            descripcion: Joi.string().max(80).required().label('descripcion'),
+            precio: Joi.number().required().label('precio'),
+            modelo: Joi.string().max(80).label('modelo'),
+            existencia: Joi.number().required().label('existencia'),
+        }
+    },
+    handler: async (request, reply) => {
+
+        try {
+            const {
+                clave,
+                descripcion,
+                precio,
+                modelo,
+                existencia
+            } = request.payload;
+
+            const itemData = await Models.update(clave, descripcion, precio, modelo, existencia);
+
+            reply(itemData);
+        }
+        catch (err) {
+            reply(err);
+        }
+    }
+};
+
+exports.get = {
+    validate: {
+        params: {
+            clave: Joi.string().max(6).required().label('clave')
+        }
+    },
+    handler: async (request, reply) => {
+        const { clave } = request.params;
+
+        try {
+            const itemData = await Models.get(clave);
+
+            reply(itemData);
         }
         catch (err) {
             reply(err);
@@ -36,12 +89,21 @@ exports.list = {
     handler: async (request, reply) => {
 
         try {
-            let customerData = await Models.list();
+            let itemData = await Models.list();
 
-            reply(customerData);
+            reply(itemData);
         }
         catch (err) {
             reply(err);
         }
+    }
+};
+
+exports.createRandomHash = {
+    handler(request, reply) {
+        return reply({
+            type: 'item',
+            hash: require('crypto').randomBytes(3).toString('hex')
+        });
     }
 };

@@ -8,5 +8,5 @@ exports.register = (server, options, next) => {
 };
 
 exports.register.attributes = {
-    name: 'modules/events'
+    name: 'modules/items'
 };

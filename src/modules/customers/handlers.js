@@ -65,21 +65,11 @@ exports.update = {
     }
 };
 
-
-exports.createRandomHash = {
-    handler(request, reply) {
-        return reply({
-            type: 'customer',
-            hash: require('crypto').randomBytes(3).toString('hex')
-        });
-    }
-};
-
 exports.get = {
     validate: {
-      params: {
-        clave: Joi.string().max(6).required().label('clave')
-      }
+        params: {
+            clave: Joi.string().max(6).required().label('clave')
+        }
     },
     handler: async (request, reply) => {
         const { clave } = request.params;
@@ -95,7 +85,6 @@ exports.get = {
     }
 };
 
-
 exports.list = {
     handler: async (request, reply) => {
 
@@ -107,5 +96,14 @@ exports.list = {
         catch (err) {
             reply(err);
         }
+    }
+};
+
+exports.createRandomHash = {
+    handler(request, reply) {
+        return reply({
+            type: 'customer',
+            hash: require('crypto').randomBytes(3).toString('hex')
+        });
     }
 };

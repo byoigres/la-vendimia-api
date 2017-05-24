@@ -32,9 +32,11 @@ exports.register = (plugin, options, next) => {
     });
 
     schemas.item = new Schema({
+        clave: String,
         descripcion: String,
         modelo: String,
-        precio: Number
+        precio: Number,
+        existencia: Number
     });
 
     schemas.configuration = new Schema({
@@ -45,6 +47,7 @@ exports.register = (plugin, options, next) => {
 
     // Models
     models.Event = mongoose.model('customer', schemas.customer);
+    models.Item = mongoose.model('item', schemas.item);
     models.Configuration = mongoose.model('configuration', schemas.configuration);
 
     // Schema options

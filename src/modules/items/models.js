@@ -3,30 +3,67 @@
 const Mongoose = require('mongoose');
 
 exports.create = (
-  nombre,
-  apellidoPaterno,
-  apellidoMaterno,
-  rfc) => {
+    clave,
+    descripcion,
+    precio,
+    modelo,
+    existencia
+) => {
 
-    const CustomerModel = Mongoose.model('customer');
-    const customer = new CustomerModel();
+    const ItemModel = Mongoose.model('item');
+    const item = new ItemModel();
 
-    customer.set({
-        nombre,
-        apellidoPaterno,
-        apellidoMaterno,
-        rfc
+    item.set({
+        clave,
+        descripcion,
+        precio,
+        modelo,
+        existencia
     });
 
-    return customer.save();
+    return item.save();
+};
+
+exports.update = (
+    clave,
+    descripcion,
+    precio,
+    modelo,
+    existencia
+) => {
+
+    const ItemModel = Mongoose.model('item');
+    return ItemModel.findOneAndUpdate({ clave }, {
+        descripcion,
+        precio,
+        modelo,
+        existencia
+    }, {
+        upsert: true
+    });
 };
 
 exports.list = () => {
 
-    const CustomerModel = Mongoose.model('customer');
+    const ItemModel = Mongoose.model('item');
 
-    return CustomerModel
+    return ItemModel
         .find({}, {
+            __v: false,
+            updatedAt: false,
+            createdAt: false
+        })
+        .exec();
+};
+
+exports.get = (clave) => {
+
+    const ItemModel = Mongoose.model('item');
+
+    return ItemModel
+        .findOne({ clave }, {
+            _id: false,
+            id: false,
             __v: false,
             updatedAt: false,
             createdAt: false

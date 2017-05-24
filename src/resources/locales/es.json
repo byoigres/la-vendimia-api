@@ -8,5 +8,15 @@
 	"rfc.any.required": "No es posible continuar, debe ingresar `el rfc` es obligatorio",
 	"rfc.any.empty": "No es posible continuar, debe ingresar `el rfc` es obligatorio",
 	"clave.any.required": "No es posible continuar, debe ingresar `la clave` es obligatorio",
-	"id.any.required": "id.any.required"
+	"id.any.required": "id.any.required",
+	"financiamiento.number.base": "financiamiento.number.base",
+	"enganche.number.base": "enganche.number.base",
+	"plazo.number.base": "plazo.number.base",
+	"rfc.string.max": "rfc.string.max",
+	"descripcion.any.required": "descripcion.any.required",
+	"descripcion.any.empty": "descripcion.any.empty",
+	"precio.number.base": "precio.number.base",
+	"modelo.any.empty": "modelo.any.empty",
+	"existencia.number.base": "existencia.number.base",
+	"clave.object.allowUnknown": "clave.object.allowUnknown"
 }
